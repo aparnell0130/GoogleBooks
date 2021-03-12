@@ -8,7 +8,6 @@ function Navigation() {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand href="#home">Google Books</Navbar.Brand>
                 <Nav className="mr-auto">
-
                     <Nav.Link href="/">Search</Nav.Link>
                     <Nav.Link href="/saved">Saved</Nav.Link>
                 </Nav>
