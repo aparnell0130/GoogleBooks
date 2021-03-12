@@ -19,6 +19,12 @@ function SearchBody() {
                         </Form>
                     </Card.Body>
                 </Card>
+                <Card className='mt-4'>
+                    <Card.Header as='h5'>Results</Card.Header>
+                    <Card.Body>
+
+                    </Card.Body>
+                </Card>
             </Container>
         </div>
     )
