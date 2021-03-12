@@ -1,10 +1,12 @@
 import React from 'react'
-import BooksContainer from './components/BooksContainer'
+import Saved from './pages/Saved';
+import Search from './pages/Search';
 
 function App() {
   return (
     <div>
-      <BooksContainer />
+      <Saved />
+      <Search />
     </div>
   );
 }
