@@ -7,12 +7,17 @@ function Search() {
     const [search, setSearch] = useState('')
     const [books, setBooks] = useState([])
     const searchInput = (event) => {
+        // console.log(event.target.value)
         setSearch(event.target.value)
     }
     const searchTitle = (event) => {
         event.preventDefault()
+        console.log(search)
         API.getSearch(search)
-            .then(res => setBooks(res.items))
+            .then(res => {
+                console.log(res)
+                setBooks(res.data.items)
+            })
     }
     return (
         <div>
