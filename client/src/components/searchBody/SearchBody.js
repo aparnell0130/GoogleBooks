@@ -21,11 +21,13 @@ function SearchBody({ books, searchInput, searchTitle }) {
                 </Card>
                 <Card className='mt-4'>
                     <Card.Header as='h5'>Results</Card.Header>
-                    <Card.Body>
-                        {books.map(book => (
+                    {books.map(book => (
+                        <Card.Body key={book.id}>
+
                             <li>{book.volumeInfo.title}</li>
-                        ))}
-                    </Card.Body>
+
+                        </Card.Body>
+                    ))}
                 </Card>
             </Container>
         </div>
