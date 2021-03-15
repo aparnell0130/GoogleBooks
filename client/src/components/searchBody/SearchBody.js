@@ -1,24 +1,10 @@
 import React from 'react'
-import { Form, Button, Container, Card, Row, Col } from 'react-bootstrap'
+import { Button, Container, Card, Row, Col } from 'react-bootstrap'
 
-function SearchBody({ books, searchInput, searchTitle }) {
+function SearchBody({ books }) {
     return (
         <div>
             <Container>
-                <Card>
-                    <Card.Header as='h5'>Book Search</Card.Header>
-                    <Card.Body>
-                        <Form >
-                            <Form.Group controlId="formBookSearch">
-                                <Form.Label>Book</Form.Label>
-                                <Form.Control type="text" placeholder="Enter Book" onChange={searchInput} />
-                            </Form.Group>
-                            <Button variant="primary" type="submit" onClick={searchTitle}>
-                                Submit
-                            </Button>
-                        </Form>
-                    </Card.Body>
-                </Card>
                 <Card className='mt-4'>
                     {books.length ? (
                         <div>

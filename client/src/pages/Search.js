@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import SearchBar from '../components/searchBody/SearchBar'
 import SearchBody from '../components/searchBody/SearchBody'
 import API from '../utils/API'
 
@@ -35,13 +36,16 @@ function Search() {
     }
     return (
         <div>
-            <SearchBody
-                books={books}
+            <SearchBar
                 searchInput={searchInput}
                 searchTitle={searchTitle}
+            />
+            <SearchBody
+                books={books}
                 setBookObj={setBookObj}
                 saveBook={saveBook}
             />
+
         </div>
     )
 }
