@@ -6,6 +6,14 @@ import API from '../utils/API'
 function Search() {
     const [search, setSearch] = useState('')
     const [books, setBooks] = useState([])
+    const [bookObj, setBookObj] = useState({
+        title: '',
+        authors: [],
+        description: '',
+        image: '',
+        link: ''
+    })
+
     const searchInput = (event) => {
         // console.log(event.target.value)
         setSearch(event.target.value)
@@ -15,13 +23,25 @@ function Search() {
         console.log(search)
         API.getSearch(search)
             .then(res => {
-                console.log(res)
+                console.log(res.data.items)
                 setBooks(res.data.items)
             })
     }
+    const saveBook = event => {
+        event.preventDefault()
+        API.saveBook(bookObj)
+            .then(() => { })
+            .catch(err => console.log(err))
+    }
     return (
         <div>
-            <SearchBody books={books} searchInput={searchInput} searchTitle={searchTitle} />
+            <SearchBody
+                books={books}
+                searchInput={searchInput}
+                searchTitle={searchTitle}
+                setBookObj={setBookObj}
+                saveBook={saveBook}
+            />
         </div>
     )
 }
