@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 
 const PORT = process.env.PORT || 3001;
-
+const routes = require('./routes')
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/googlebooks', {
     useCreateIndex: true,
     useFindAndModify: false
 });
-
+app.use(routes)
 app.listen(PORT, function () {
     console.log(`Server listening on http://localhost:${PORT}`)
 })
