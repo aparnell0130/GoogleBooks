@@ -1,7 +1,6 @@
 
 import React from 'react'
 import { Nav, Navbar } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 
 function Navigation() {
     return (
@@ -9,8 +8,8 @@ function Navigation() {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand >Google Books</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Link to="/">Search</Link>
-                    <Link to="/saved">Saved</Link>
+                    <Nav.Link href="/">Search</Nav.Link>
+                    <Nav.Link href="/saved">Saved</Nav.Link>
                 </Nav>
             </Navbar>
         </div>
