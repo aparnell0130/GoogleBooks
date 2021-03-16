@@ -15,13 +15,10 @@ module.exports = {
       .catch(err => res.status(422).json(err))
   },
   deleteBook: (req, res) => {
-    const id = req.body.id
     db.Book
-    findById({ _id: id })
-      .then(data => {
-        data.remove();
-        res.json(data)
-      })
+      .findById({ _id: req.params.id })
+      .then(data => data.remove())
+      .then(data => res.json(data))
       .catch(err => res.status(422).json(err))
   }
 }

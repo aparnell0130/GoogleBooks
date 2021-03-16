@@ -13,6 +13,13 @@ function SavedBody() {
             })
     }, [setSavedBooks])
 
+    const deleteBook = (id) => {
+        API.deleteBook(id)
+            .then((data) => setSavedBooks(savedBooks.filter(book => book._id !== id)))
+
+            .catch(err => console.log(err))
+    }
+
     return (
         <div>
             <Container>
@@ -35,7 +42,8 @@ function SavedBody() {
                                                         <ViewButton bookLink={book.link} />
                                                         <Button
                                                             onClick={e => {
-
+                                                                e.preventDefault()
+                                                                deleteBook(book._id)
                                                             }}
                                                             className='m-1'>Delete</Button>
                                                     </Row>
