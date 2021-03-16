@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Button, Container, Card, Row, Col } from 'react-bootstrap'
 import API from '../../utils/API'
 import ViewButton from '../ViewButton'
+import swal from 'sweetalert';
 
 function SearchBody({ books }) {
     const [bookObj, setBookObj] = useState({
@@ -31,7 +32,11 @@ function SearchBody({ books }) {
 
         API.saveBook(bookObj)
             .then((data) => {
-                console.log(bookObj)
+                swal({
+                    title: "Book Saved!",
+                    text: "You have successfully saved the book!",
+                    icon: "success",
+                });
             })
             .catch(err => console.log(err))
     }
