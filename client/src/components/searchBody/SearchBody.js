@@ -20,7 +20,7 @@ function SearchBody({ books }) {
                                                     </Card.Title>
                                                 </Col>
                                                 <Col md={{ span: 2, offset: 4 }}>
-                                                    <Button className='m-1'>View</Button>
+                                                    <Button className='m-1'><a className='text-white text-decoration-none' href={book.volumeInfo.previewLink} target='_blank' rel="noreferrer">View</a></Button>
                                                     <Button className='m-1'>Save</Button>
                                                 </Col>
                                             </Row>
@@ -41,15 +41,12 @@ function SearchBody({ books }) {
                                                         {book.volumeInfo.description}
                                                     </Card.Text>
                                                 </Col>
-
                                             </Row>
-
                                         </Card.Body>
                                     </Card>
                                 </Card.Body>
                             ))}
                         </div>
-
                     ) : (
                         <Card.Header as='h5'>No Results</Card.Header>
                     )}
