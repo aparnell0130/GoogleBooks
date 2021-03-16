@@ -1,8 +1,40 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Container, Card, Row, Col } from 'react-bootstrap'
+import API from '../../utils/API'
 import ViewButton from '../ViewButton'
 
 function SearchBody({ books }) {
+    const [bookObj, setBookObj] = useState({
+        title: '',
+        authors: [],
+        description: '',
+        image: '',
+        link: ''
+    })
+
+    const saveBook = (book) => {
+        console.log(book)
+        let img;
+        if (book.volumeInfo.imageLinks === undefined) {
+            img = 'https://placehold.it/300x300'
+        } else {
+            img = `${book.volumeInfo.imageLinks.thumbnail}`
+        }
+
+        setBookObj({
+            title: book.volumeInfo.title,
+            authors: book.volumeInfo.authors,
+            description: book.volumeInfo.description,
+            image: img,
+            link: book.volumeInfo.previewLink
+        })
+
+        API.saveBook(bookObj)
+            .then((data) => {
+                console.log(bookObj)
+            })
+            .catch(err => console.log(err))
+    }
     return (
         <div>
             <Container>
@@ -23,7 +55,12 @@ function SearchBody({ books }) {
                                                 <Col md={{ span: 2, offset: 4 }}>
                                                     <Row>
                                                         <ViewButton bookLink={book.volumeInfo.previewLink} />
-                                                        <Button className='m-1'>Save</Button>
+                                                        <Button
+                                                            onClick={e => {
+                                                                e.preventDefault();
+                                                                saveBook(book);
+                                                            }}
+                                                            className='m-1'>Save</Button>
                                                     </Row>
                                                 </Col>
                                             </Row>
