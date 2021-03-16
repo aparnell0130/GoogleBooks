@@ -6,6 +6,9 @@ const API = {
     },
     saveBook: (data) => {
         return axios.post('/api/books', data)
+    },
+    getBooks: () => {
+        return axios.get('api/books')
     }
 }
 

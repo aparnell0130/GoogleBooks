@@ -1,15 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Card, Container } from 'react-bootstrap'
+import API from '../../utils/API'
 
 function SavedBody() {
+    const [savedBooks, setSavedBooks] = useState([])
+    useEffect(() => {
+        API.getBooks()
+            .then((data) => {
+                setSavedBooks(data.data)
+                console.log(data)
+            })
+    }, [setSavedBooks])
     return (
         <div>
             <Container>
                 <Card>
                     <Card.Header as='h5'>Saved Books</Card.Header>
-                    <Card.Body>
+                    {savedBooks.map(book => (
+                        <Card.Body key={book.id}>
+                            {book.title}
+                        </Card.Body>
+                    ))}
 
-                    </Card.Body>
                 </Card>
             </Container>
         </div>
