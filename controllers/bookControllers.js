@@ -6,5 +6,11 @@ module.exports = {
       .create(req.body)
       .then(data => res.json(data))
       .catch(err => res.status(400).json(err))
-  }
+  },
+  getBooks: ((req, res) => {
+    db.Book
+      .find()
+      .then((data) => { res.json(data) })
+      .catch(err => console.log(err))
+  })
 }
