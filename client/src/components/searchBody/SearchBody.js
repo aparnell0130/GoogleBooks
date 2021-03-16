@@ -21,8 +21,10 @@ function SearchBody({ books }) {
                                                     </Card.Title>
                                                 </Col>
                                                 <Col md={{ span: 2, offset: 4 }}>
-                                                    <ViewButton bookLink={book.volumeInfo.previewLink} />
-                                                    <Button className='m-1'>Save</Button>
+                                                    <Row>
+                                                        <ViewButton bookLink={book.volumeInfo.previewLink} />
+                                                        <Button className='m-1'>Save</Button>
+                                                    </Row>
                                                 </Col>
                                             </Row>
                                             <Card.Subtitle className='mt-2'>{book.volumeInfo.authors}</Card.Subtitle>
