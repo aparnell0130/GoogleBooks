@@ -17,7 +17,7 @@ function SavedBody() {
                 <Card>
                     <Card.Header as='h5'>Saved Books</Card.Header>
                     {savedBooks.map(book => (
-                        <Card.Body key={book.id}>
+                        <Card.Body key={book._id}>
                             {book.title}
                         </Card.Body>
                     ))}
