@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button, Container, Card, Row, Col } from 'react-bootstrap'
+import ViewButton from '../ViewButton'
 
 function SearchBody({ books }) {
     return (
@@ -20,7 +21,7 @@ function SearchBody({ books }) {
                                                     </Card.Title>
                                                 </Col>
                                                 <Col md={{ span: 2, offset: 4 }}>
-                                                    <Button className='m-1'><a className='text-white text-decoration-none' href={book.volumeInfo.previewLink} target='_blank' rel="noreferrer">View</a></Button>
+                                                    <ViewButton bookLink={book.volumeInfo.previewLink} />
                                                     <Button className='m-1'>Save</Button>
                                                 </Col>
                                             </Row>
