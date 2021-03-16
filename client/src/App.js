@@ -4,6 +4,7 @@ import Saved from './pages/Saved';
 import Search from './pages/Search';
 import Navigation from './components/navbar/Navigation';
 import Header from './components/header/Header';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Switch>
           <Route exact path='/' component={Search} />
           <Route exact path='/saved' component={Saved} />
+          <Route component={NotFound} />
         </Switch>
       </Router>
     </div>
