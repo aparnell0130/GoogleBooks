@@ -9,7 +9,6 @@ function SavedBody() {
         API.getBooks()
             .then((data) => {
                 setSavedBooks(data.data)
-                console.log(data)
             })
     }, [setSavedBooks])
 
