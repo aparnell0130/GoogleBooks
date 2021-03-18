@@ -13,9 +13,18 @@ function App() {
         <Navigation />
         <Header />
         <Switch>
-          <Route exact path='/' component={Search} />
-          <Route exact path='/saved' component={Saved} />
-          <Route component={NotFound} />
+          <Route exact path='/'>
+            {' '}
+            <Search />
+          </Route>
+          <Route exact path='/saved'>
+            {' '}
+            <Saved />
+          </Route>
+          <Route>
+            {' '}
+            <NotFound />
+          </Route>
         </Switch>
       </Router>
     </div>

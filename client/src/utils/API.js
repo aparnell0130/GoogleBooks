@@ -1,16 +1,16 @@
 import axios from 'axios'
 
 const API = {
-    getSearch: (search) => {
+    getSearch: async (search) => {
         return axios.get(`https://www.googleapis.com/books/v1/volumes?q=intitle:${search}`)
     },
-    saveBook: (data) => {
+    saveBook: async (data) => {
         return axios.post('/api/books', data)
     },
-    getBooks: () => {
+    getBooks: async () => {
         return axios.get('/api/books')
     },
-    deleteBook: (id) => {
+    deleteBook: async (id) => {
         return axios.delete('/api/books/' + id)
     }
 }

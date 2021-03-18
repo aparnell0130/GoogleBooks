@@ -13,11 +13,11 @@ function SearchBody({ books }) {
         link: ''
     })
 
-    const saveBook = (book) => {
+    const saveBook = async (book) => {
         console.log(book)
         let img;
         if (book.volumeInfo.imageLinks === undefined) {
-            img = 'https://placehold.it/300x300'
+            img = 'https://vcunited.club/wp-content/uploads/2020/01/No-image-available-2.jpg'
         } else {
             img = `${book.volumeInfo.imageLinks.thumbnail}`
         }
@@ -30,7 +30,7 @@ function SearchBody({ books }) {
             link: book.volumeInfo.previewLink
         })
 
-        API.saveBook(bookObj)
+        await API.saveBook(bookObj)
             .then((data) => {
                 swal({
                     title: "Book Saved!",
@@ -75,7 +75,7 @@ function SearchBody({ books }) {
                                                     <Card.Img
                                                         src={
                                                             book.volumeInfo.imageLinks === undefined
-                                                                ? 'https://placehold.it/300x300'
+                                                                ? 'https://vcunited.club/wp-content/uploads/2020/01/No-image-available-2.jpg'
                                                                 : `${book.volumeInfo.imageLinks.thumbnail}`
                                                         }
                                                         style={{ width: '200px', height: '250px' }}
