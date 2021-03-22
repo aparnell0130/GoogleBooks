@@ -9,8 +9,8 @@ function Navigation() {
             <Navbar bg="dark" variant="dark">
                 <Navbar.Brand >Google Books</Navbar.Brand>
                 <Nav className="mr-auto">
-                    <Link className='nav-link' to="/">Search</Link>
-                    <Link className='nav-link' to="/saved">Saved</Link>
+                    <Nav.Link as={Link} to="/" >Search</Nav.Link>
+                    <Nav.Link as={Link} to="/saved" >Saved</Nav.Link>
                 </Nav>
             </Navbar>
         </div>

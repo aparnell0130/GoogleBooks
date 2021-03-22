@@ -61,9 +61,8 @@ function SearchBody({ books }) {
                                                     <Row>
                                                         <ViewButton bookLink={book.volumeInfo.previewLink} />
                                                         <Button
-                                                            onClick={e => {
-                                                                e.preventDefault();
-                                                                saveBook(book);
+                                                            onClick={() => {
+                                                                saveBook(book)
                                                             }}
                                                             className='m-1'>Save</Button>
                                                     </Row>
